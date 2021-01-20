@@ -266,8 +266,133 @@
     <script src="assets/style/js/chart.js"></script>
     <script src="assets/style/js/scorechart.js"></script> 
 
+    <script type="text/javascript">
+        var base_url = "index.html";
+        $(document).ready(function(){
+            $(document).keyup(function(event) {
+                if(event.which === 32) {
+                    event.preventDefault();
+                }
+            });
+            $('#yes-no').on('click',function(){
+                
+                $('.keyboard-container').toggle();
+            });
+            $('.hand-block #hand').on('click',function(){
+                $('.keyboard-container .left-hand-block').toggle();
+                $('.keyboard-container .right-hand-block').toggle();
+            });
+        });
+    </script>
 
-    <!-- emd of javascript -->
+    <script type="text/javascript">
+	$(document).keypress(function(e){
+	
+	var keyboardval=e.key;
+	var val=$('.typing-text-line').find('.goingnew').text();
+	 var val=val.replace('\xa0', ' ');
+	var valnew=$('.typing-text-line').find('.goingnewnew').text();
+	 var valnew=valnew.replace('\xa0', ' ');
+
+	var asciival=val.charCodeAt(0);
+	var asciivalnew=valnew.charCodeAt(0);
+
+
+    var snd = new Howl({
+							  src: ['https://www.typedojo.com/templates/dojo/sound/typing.ogg']
+							});
+						var wrongtype = new Howl({
+							  src: ['https://www.typedojo.com/templates/dojo/sound/wrongtype.ogg']
+							});
+						if($('#soundcheck').is(":checked")){
+							
+                       
+                       
+
+                    
+							if((keyboardval==val) || (keyboardval==valnew ) )
+							{																	
+								snd.play();						
+							}
+							else 
+							{
+							    wrongtype.play();							
+							}
+						}
+						else
+						{
+							snd.pause();
+							wrongtype.pause();							
+						}		
+});
+</script>
+
+
+
+<script type="text/javascript">
+(function($) { 
+  $(function() { 
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      $('.dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); 
+})(jQuery);
+</script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('ul li a').click(function(){
+    $('li a').removeClass("active");
+    $(this).addClass("active");
+});
+});
+</script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.start-button').click(function(){
+  var url=$(this).attr('href');
+ window.location.href=url;
+});
+});
+</script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.tablinks:first-child').click(function(){
+ $('.tablink:first-child').addClass('active');
+ $('#Basic').css("display", "block");
+});
+});
+</script>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+
+	});
+</script>
+    <!-- end of javascript -->
 
 
 
